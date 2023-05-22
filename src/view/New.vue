@@ -1,13 +1,9 @@
 <template>
-  <div>new</div>
+  <div>asd</div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped></style>

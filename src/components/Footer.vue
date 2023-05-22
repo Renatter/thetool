@@ -28,7 +28,7 @@
                   >Малярные товары</a
                 >
               </li>
-              <li class="mb-4">
+              <li class="mb-4" >
                 <a href="https://tailwindcss.com/" class="hover:underline"
                   >Электрооборудование</a
                 >

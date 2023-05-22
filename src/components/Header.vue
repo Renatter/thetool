@@ -69,6 +69,20 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/Catalog">
+                <a
+                  href="#"
+                  :class="{
+                    'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500':
+                      activeTab === 'about',
+                  }"
+                  @click="changeTab('about')"
+                >
+                  Каталог
+                </a>
+              </router-link>
+            </li>
+            <li>
               <a
                 href="#"
                 :class="{

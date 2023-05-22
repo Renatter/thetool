@@ -5,6 +5,8 @@ import {
 import About from "../view/Abou.vue"
 import New from "../view/New.vue"
 import Home from "../view/Home.vue"
+import Catalog from "../view/Catalog.vue"
+import InfoCard from "../components/InfoCard.vue"
 const router = createRouter({
 
     history: createWebHistory(),
@@ -23,6 +25,17 @@ const router = createRouter({
             path: '/Home',
             name: 'Home',
             component: Home,
+        },
+        {
+            path: '/Catalog',
+            name: 'Catalog',
+            component: Catalog,
+        },
+        {
+            path: '/InfoCard/:id/:id2',
+            name: 'InfoCard',
+            component: InfoCard,
+            props: true
         },
 
 
