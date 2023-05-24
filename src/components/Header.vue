@@ -18,12 +18,60 @@
           </a>
         </router-link>
         <div class="flex md:order-2">
-          <button
-            type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Регистрация
-          </button>
+          <div v-if="isAuthenticated" class="flex">
+            <router-link to="/Bracket">
+              <button
+                type="button"
+                class="mr-[15px] relative inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                  ></path>
+                  <path
+                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                  ></path>
+                </svg>
+                <span class="sr-only">Notifications</span>
+                Корзина
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
+                >
+                  {{ itemsLength }}
+                </div>
+              </button>
+            </router-link>
+
+            <button
+              @click="logout"
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Выйти
+            </button>
+          </div>
+          <div v-else>
+            <router-link
+              to="/Reg"
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Регистрация
+            </router-link>
+            <router-link
+              to="/Login"
+              type="button"
+              class="ml-[15px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Войти
+            </router-link>
+          </div>
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
@@ -128,11 +176,38 @@
 </template>
 
 <script>
+import { auth, db } from "../firebase/index";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 export default {
   data() {
-    return {};
+    return {
+      isAuthenticated: false,
+      itemsLength: null,
+    };
   },
-  methods: {},
+  methods: {
+    logout() {
+      auth.signOut();
+      this.$router.push("/");
+    },
+  },
+  async created() {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        this.isAuthenticated = true;
+        const docRef = doc(db, "users", user.uid);
+        onSnapshot(docRef, (docSnap) => {
+          if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            this.itemsLength = docSnap.data().cart.length;
+            console.log(this.itemsLength);
+          } else {
+            console.log("No such document!");
+          }
+        });
+      }
+    });
+  },
 };
 </script>
 

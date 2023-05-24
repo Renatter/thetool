@@ -7,6 +7,9 @@ import New from "../view/New.vue"
 import Home from "../view/Home.vue"
 import Catalog from "../view/Catalog.vue"
 import InfoCard from "../components/InfoCard.vue"
+import Reg from "../components/reg.vue"
+import Login from "../components/Login.vue"
+import Bracket from '../view/Bracket.vue'
 const router = createRouter({
 
     history: createWebHistory(),
@@ -37,6 +40,21 @@ const router = createRouter({
             component: InfoCard,
             props: true
         },
+        {
+            path: "/Reg",
+            name: 'Reg',
+            component: Reg,
+        },
+        {
+            path: "/Login",
+            name: 'Login',
+            component: Login,
+        },
+        {
+            path: "/Bracket",
+            name: 'Bracket',
+            component: Bracket,
+        }
 
 
     ]
