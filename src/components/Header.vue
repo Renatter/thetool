@@ -47,6 +47,31 @@
                 </div>
               </button>
             </router-link>
+            <router-link to="/Like">
+              <button
+                type="button"
+                class="mr-[15px] relative inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              >
+                <svg
+                  class="w-5 h-5 mr-[15px]"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 4.753C6.278 1.1 0 5.252 0 10.41 0 15.188 4.58 19 12 23c7.42-4 12-7.812 12-12.59C24 5.25 17.71 1.1 12 4.753z"
+                  ></path>
+                </svg>
+                <span class="sr-only">Notifications</span>
+                Избранные
+                <div
+                  class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
+                >
+                  {{ itemsLike }}
+                </div>
+              </button>
+            </router-link>
 
             <button
               @click="logout"
@@ -183,6 +208,7 @@ export default {
     return {
       isAuthenticated: false,
       itemsLength: null,
+      itemsLike: null,
     };
   },
   methods: {
@@ -200,7 +226,19 @@ export default {
           if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
             this.itemsLength = docSnap.data().cart.length;
+
             console.log(this.itemsLength);
+          } else {
+            console.log("No such document!");
+          }
+        });
+        const likeRef = doc(db, "likes", user.uid);
+        onSnapshot(likeRef, (docSnap) => {
+          if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+
+            this.itemsLike = docSnap.data().likes.length;
+            console.log(this.itemsLike);
           } else {
             console.log("No such document!");
           }

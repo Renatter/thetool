@@ -1,7 +1,7 @@
 <template>
   <div class="h-full bg-white">
-    <h1 class="text-[50px]">Корзина</h1>
-    {{ currentUser.uid }}
+    <h1 class="text-[50px]">Избранные</h1>
+
     <div>
       <div class="relative overflow-x-auto">
         <table
@@ -15,8 +15,7 @@
               <th scope="col" class="px-6 py-3">Color</th>
               <th scope="col" class="px-6 py-3">Category</th>
               <th scope="col" class="px-6 py-3">Price</th>
-              <th scope="col" class="px-6 py-3">Quantity</th>
-              <th scope="col" class="px-6 py-3">Total Price</th>
+
               <th scope="col" class="px-6 py-3">Actions</th>
             </tr>
           </thead>
@@ -33,7 +32,7 @@
                   <img
                     :src="item.image"
                     alt="Product Image"
-                    class="w-8 h-8 mr-4"
+                    class="w-[50px] h-[50px] mr-4 object-scale-down"
                   />
                   <span class="font-medium text-gray-900 dark:text-white">{{
                     item.name
@@ -43,16 +42,7 @@
               <td class="px-6 py-4">Silver</td>
               <td class="px-6 py-4">Laptop</td>
               <td class="px-6 py-4">${{ item.price }}</td>
-              <td class="px-6 py-4">
-                <input
-                  type="number"
-                  min="0"
-                  v-model="item.quantity"
-                  @change="updateTotalPrice(item)"
-                  class="w-16 px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                />
-              </td>
-              <td class="px-6 py-4">${{ item.totalPrice }}</td>
+
               <td class="px-6 py-4">
                 <button @click="deleteItem(item)" class="text-red-500">
                   Delete
@@ -63,8 +53,6 @@
         </table>
       </div>
     </div>
-    <div class="mt-4">Total: ${{ totalSum }}</div>
-    <button @click="show">add</button>
   </div>
 </template>
 
@@ -93,9 +81,9 @@ export default {
       item.totalPrice = item.price * item.quantity;
     },
     async deleteItem(item) {
-      const docRef = doc(db, "users", this.id);
+      const docRef = doc(db, "likes", this.id);
       await updateDoc(docRef, {
-        cart: arrayRemove(item),
+        likes: arrayRemove(item),
       });
     },
   },
@@ -121,11 +109,12 @@ export default {
         } else {
           console.log("No such document!");
         }
-        const docRef = doc(db, "users", this.id);
+
+        const docRef = doc(db, "likes", this.id);
         const unsubscribe = onSnapshot(docRef, (docSnap) => {
           if (docSnap.exists()) {
             console.log("Document data:", docSnap.data());
-            this.items = docSnap.data().cart;
+            this.items = docSnap.data().likes;
           } else {
             console.log("No such document!");
           }

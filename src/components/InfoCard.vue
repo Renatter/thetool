@@ -79,13 +79,22 @@
           <p class="my-[50px] font-bold text-[30px]">
             {{ productInfo.price }} тг
           </p>
-          <button
-            @click="addToCart"
-            type="button"
-            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
-          >
-            Купить
-          </button>
+          <div>
+            <button
+              @click="addToCart"
+              type="button"
+              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+            >
+              Купить
+            </button>
+            <button
+              @click="addLike"
+              type="button"
+              class="focus:outline-none text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-800"
+            >
+              Нравится
+            </button>
+          </div>
         </div>
       </div>
       <div class="full-info">
@@ -216,12 +225,41 @@ export default {
       firstName: null,
       currentUser: null,
       cart: null,
+      likes: [],
     };
   },
   methods: {
+    async addLike() {
+      const docRef = doc(db, "likes", `${this.currentUser.uid}`);
+      const newLike = {
+        category: this.$route.params.id2,
+        name: this.productInfo.name,
+        image: this.productInfo.image,
+        price: this.productInfo.price,
+        currentUser: this.currentUser.uid,
+      };
+      const likeExists = (this.likes || []).some(
+        (like) => like.name === newLike.name
+      );
+
+      if (likeExists) {
+        alert("Вы уже отметили, что вам нравится этот товар");
+        // Отобразите пользователю сообщение, указывающее, что товар уже был отмечен
+        return;
+      }
+
+      // Добавьте новый элемент в массив существующих отметок "Нравится"
+      const updatedLikes = [...(this.likes || []), newLike];
+
+      // Обновите данные пользователя с обновленным массивом отметок "Нравится"
+      await setDoc(docRef, { likes: updatedLikes }, { merge: true });
+
+      console.log("Item added to likes:", newLike);
+    },
     async addToCart() {
       const docRef = doc(db, "users", `${this.currentUser.uid}`);
       const newItem = {
+        category: this.$route.params.id2,
         name: this.productInfo.name,
         image: this.productInfo.image,
         price: this.productInfo.price,
@@ -282,6 +320,13 @@ export default {
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
           this.cart = userDoc.data().cart;
+        } else {
+          console.log("No such document!");
+        }
+        const likeDocRef = doc(db, "likes", user.uid);
+        const likeDoc = await getDoc(likeDocRef);
+        if (likeDoc.exists()) {
+          this.likes = likeDoc.data().likes;
         } else {
           console.log("No such document!");
         }

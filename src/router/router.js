@@ -10,6 +10,7 @@ import InfoCard from "../components/InfoCard.vue"
 import Reg from "../components/reg.vue"
 import Login from "../components/Login.vue"
 import Bracket from '../view/Bracket.vue'
+import Like from "../view/Like.vue"
 const router = createRouter({
 
     history: createWebHistory(),
@@ -54,8 +55,12 @@ const router = createRouter({
             path: "/Bracket",
             name: 'Bracket',
             component: Bracket,
+        },
+        {
+            path: "/Like",
+            name: 'Like',
+            component: Like,
         }
-
 
     ]
 })

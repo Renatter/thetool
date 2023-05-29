@@ -12,11 +12,11 @@
       >
         <swiper-slide v-for="(item, key) in items" :key="key" class="mr-[15px]">
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="max-w-sm h-[390px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
-                class="rounded-t-lg w-[150px] m-[15px]"
+                class="rounded-t-lg w-[150px] h-[150px] m-[15px] object-scale-down"
                 :src="item.image"
                 alt=""
               />
@@ -32,25 +32,29 @@
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {{ item.price }} $
               </p>
-              <a
-                href="#"
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <router-link
+                :to="{ path: '/InfoCard/' + item.name + '/' + 'product1' }"
               >
-                Купить
-                <svg
-                  aria-hidden="true"
-                  class="w-4 h-4 ml-2 -mr-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+                  Купить
+                  <svg
+                    aria-hidden="true"
+                    class="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </router-link>
             </div>
           </div>
         </swiper-slide>
@@ -73,11 +77,11 @@
           class="mr-[15px]"
         >
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="max-w-sm h-[390px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
-                class="rounded-t-lg w-[150px] m-[15px]"
+                class="rounded-t-lg w-[150px] h-[150px] m-[15px] object-scale-down"
                 :src="Workwear.image"
                 alt=""
               />
@@ -93,25 +97,29 @@
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {{ Workwear.price }} $
               </p>
-              <a
-                href="#"
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <router-link
+                :to="{ path: '/InfoCard/' + Workwear.name + '/' + 'Workwear' }"
               >
-                Купить
-                <svg
-                  aria-hidden="true"
-                  class="w-4 h-4 ml-2 -mr-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+                  Купить
+                  <svg
+                    aria-hidden="true"
+                    class="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </router-link>
             </div>
           </div>
         </swiper-slide>
@@ -136,11 +144,11 @@
           class="mr-[15px]"
         >
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="max-w-sm h-[390px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
-                class="rounded-t-lg w-[150px] m-[15px]"
+                class="rounded-t-lg w-[150px] h-[150px] m-[15px] object-scale-down"
                 :src="homeG.image"
                 alt=""
               />
@@ -156,25 +164,29 @@
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {{ homeG.price }} $
               </p>
-              <a
-                href="#"
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <router-link
+                :to="{ path: '/InfoCard/' + homeG.name + '/' + 'HomeGarden' }"
               >
-                Купить
-                <svg
-                  aria-hidden="true"
-                  class="w-4 h-4 ml-2 -mr-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+                  Купить
+                  <svg
+                    aria-hidden="true"
+                    class="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </router-link>
             </div>
           </div>
         </swiper-slide>
@@ -197,11 +209,11 @@
           class="mr-[15px]"
         >
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="max-w-sm h-[390px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
-                class="rounded-t-lg w-[150px] m-[15px]"
+                class="rounded-t-lg w-[150px] h-[150px] m-[15px] object-scale-down"
                 :src="Elec.image"
                 alt=""
               />
@@ -217,25 +229,29 @@
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {{ Elec.price }} $
               </p>
-              <a
-                href="#"
-                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              <router-link
+                :to="{ path: '/InfoCard/' + Elec.name + '/' + 'ElecEquim' }"
               >
-                Купить
-                <svg
-                  aria-hidden="true"
-                  class="w-4 h-4 ml-2 -mr-1"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="#"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+                  Купить
+                  <svg
+                    aria-hidden="true"
+                    class="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+              </router-link>
             </div>
           </div>
         </swiper-slide>
