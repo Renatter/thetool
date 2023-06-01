@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full bg-white">
+  <div class="h-full">
     <h1 class="text-[50px]">Корзина</h1>
-    {{ currentUser.uid }}
+
     <div>
       <div class="relative overflow-x-auto">
         <table
@@ -63,8 +63,269 @@
         </table>
       </div>
     </div>
-    <div class="mt-4">Total: ${{ totalSum }}</div>
-    <button @click="show">add</button>
+    <h1 class="text-[25px]">Оформление заказа</h1>
+    <div class="mt-[55px] bg-white">
+      <div class="w-full flex justify-between">
+        <div class="Input w-[700px] p-[25px]">
+          <div class="flex text-[20px]"></div>
+          <div v-if="tab === 1">
+            <p>Данные покупателя</p>
+            <div class="flex gap-14 mt-[20px]">
+              <div class="">
+                <label
+                  for="first_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Фамилия</label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Фамилия"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="first_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Имя</label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Имя"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex gap-14 mt-[20px]">
+              <div class="">
+                <label
+                  for="first_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Телефон</label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Телефон"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="first_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Электронная почта</label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Электронная почта"
+                  required
+                />
+              </div>
+            </div>
+            <button
+              @click="tabItem(2)"
+              type="button"
+              class="mt-[25px] w-[180px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              ДАЛЕЕ
+            </button>
+          </div>
+          <div v-if="tab === 2">
+            <p>Доставка</p>
+            <div class="flex items-center pt-[15px]">
+              <div class="flex items-center">
+                <input
+                  @click="deliver = 1"
+                  id="default-radio-1"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-1"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Доставка курьером</label
+                >
+              </div>
+              <div class="flex items-center ml-[30px]">
+                <input
+                  @click="deliver = 2"
+                  checked
+                  id="default-radio-2"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-2"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Самовывоз</label
+                >
+              </div>
+            </div>
+            <div v-if="deliver === 1">
+              <p class="font-bold pt-[15px]">Введите адрес доставки</p>
+
+              <div class="flex gap-8 mt-[20px]">
+                <div class="">
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Город</label
+                  >
+                  <input
+                    type="text"
+                    id="first_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Город"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Корпус</label
+                  >
+                  <input
+                    type="text"
+                    id="first_name"
+                    class="w-[380px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Корпус"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex gap-8 mt-[20px]">
+                <div class="">
+                  <label
+                    for="first_name"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Улица</label
+                  >
+                  <input
+                    type="text"
+                    id="first_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Улица"
+                    required
+                  />
+                </div>
+                <div class="flex gap-6">
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Дом</label
+                    >
+                    <input
+                      type="text"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Дом"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="first_name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Квартира</label
+                    >
+                    <input
+                      type="text"
+                      id="first_name"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Квартира"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-if="deliver === 2">
+              <p class="font-bold pt-[15px]">Пункт доставки</p>
+              <p class="pt-[7px]">Москва, ул Первомайская 14</p>
+
+              <p class="pt-[7px]">Срок хранения заказа 14 дней</p>
+            </div>
+            <button
+              @click="tabItem(3)"
+              type="button"
+              class="mt-[25px] w-[180px] text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              ДАЛЕЕ
+            </button>
+          </div>
+          <div v-if="tab === 3">
+            <p class="font-bold">Оплата</p>
+            <p class="pt-[20px]">Выберите подходящий вам вариант оплаты:</p>
+            <div class="flex items-center pt-[15px]">
+              <div class="flex items-center">
+                <input
+                  @click="pay = 1"
+                  id="default-radio-1"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-1"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Оплата при получении</label
+                >
+              </div>
+              <div class="flex items-center ml-[30px]">
+                <input
+                  @click="pay = 2"
+                  checked
+                  id="default-radio-2"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-2"
+                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Оплата онлайн</label
+                >
+              </div>
+            </div>
+            <div v-if="pay === 1" class="pt-[30px]">
+              <button
+                type="button"
+                class="focus:outline-none text-white bg-[#EAB308] hover:bg-[#EAB308] focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+              >
+                ПОДТВЕРДИТЬ ЗАКАЗ
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="Price bg-[#212526] text-white h-[250px] w-[420px]">
+          <div class="text-bold text-[30px] p-[25px]">
+            Итого:
+            <span class="text-[#EAB308]">${{ totalSum }} </span>
+          </div>
+          <div class="text-bold text-[30px] p-[25px]">
+            Товаров:
+            <span class="text-[#EAB308]"> {{ calculateTotalQuantity() }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -86,9 +347,21 @@ export default {
       lastName: null,
       items: null,
       id: null,
+      tab: 1,
+      deliver: 1,
+      pay: 1,
     };
   },
   methods: {
+    calculateTotalQuantity() {
+      if (this.items) {
+        return this.items.reduce((sum, item) => sum + item.quantity, 0);
+      }
+      return 0;
+    },
+    tabItem(index) {
+      this.tab = index;
+    },
     updateTotalPrice(item) {
       item.totalPrice = item.price * item.quantity;
     },

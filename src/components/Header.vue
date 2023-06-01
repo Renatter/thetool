@@ -4,17 +4,13 @@
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
-        <router-link to="/Home">
-          <a href="https://flowbite.com/" class="flex items-center">
+        <router-link to="/">
+          <a class="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="h-8 mr-3"
+              src="../assets/l.png"
+              class="h-[60px] mr-3"
               alt="Flowbite Logo"
             />
-            <span
-              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-              >Flowbite</span
-            >
           </a>
         </router-link>
         <div class="flex md:order-2">
@@ -156,28 +152,32 @@
               </router-link>
             </li>
             <li>
-              <a
-                href="#"
-                :class="{
-                  'block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700':
-                    activeTab === 'stocks',
-                }"
-                @click="changeTab('stocks')"
-              >
-                Акции
-              </a>
+              <router-link to="/Discount">
+                <a
+                  href="#"
+                  :class="{
+                    'block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700':
+                      activeTab === 'stocks',
+                  }"
+                  @click="changeTab('stocks')"
+                >
+                  Акции
+                </a>
+              </router-link>
             </li>
             <li>
-              <a
-                href="#"
-                :class="{
-                  'block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700':
-                    activeTab === 'heat',
-                }"
-                @click="changeTab('heat')"
-              >
-                Хиты сезона
-              </a>
+              <router-link to="/Hit">
+                <a
+                  href="#"
+                  :class="{
+                    'block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700':
+                      activeTab === 'heat',
+                  }"
+                  @click="changeTab('heat')"
+                >
+                  Хиты сезона
+                </a>
+              </router-link>
             </li>
             <li>
               <router-link to="/New">

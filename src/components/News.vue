@@ -12,21 +12,22 @@
     <div class="flex">
       <div>
         <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-[15px]"
+          class="max-w-sm h-[380px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-[15px]"
         >
           <a href="#">
             <img
               class="rounded-t-lg max-h-[250px] w-[420px]"
-              src="https://static.glavsnab.net/media/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/2/5/2500207_12.jpg?kar=1&kf=1&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90"
+              src="https://static.tildacdn.com/tild3436-3465-4736-a561-343134613938/shutterstock_6249989.jpg"
               alt=""
             />
           </a>
           <div class="p-5">
             <a href="#">
               <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Название новости
+                Новая технология революционирует строительную индустрию:
+                инновационные материалы будущего
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -35,21 +36,20 @@
           </div>
         </div>
         <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-[15px]"
+          class="max-w-sm h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-[15px]"
         >
-          <a href="#">
-            <img
-              class="rounded-t-lg max-h-[250px] w-[420px]"
-              src="https://static.glavsnab.net/media/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/2/5/2500207_12.jpg?kar=1&kf=1&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90"
-              alt=""
-            />
-          </a>
+          <img
+            class="rounded-t-lg max-h-[250px] w-[420px]"
+            src="https://trashbox.ru/ifiles/1362534_82f61a_graph.jpg-orig/grafen-nginx-i-reshenie-zadachi-tysyacheletiya-glavnye-rossijskie-izobreteniya-i-otkrytiya-21-veka-4.jpg"
+            alt=""
+          />
+
           <div class="p-5">
             <a href="#">
               <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Название новости
+                Графен в строительстве: будущее здесь
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -65,16 +65,16 @@
           <a href="#">
             <img
               class="rounded-t-lg max-h-[250px] w-[420px]"
-              src="https://static.glavsnab.net/media/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/2/5/2500207_12.jpg?kar=1&kf=1&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90"
+              src="https://prekrasnaja.com/wp-content/uploads/2022/10/0-3.jpg"
               alt=""
             />
           </a>
           <div class="p-5">
             <a href="#">
               <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Название новости
+                Умный бетон: революционная технология для надежных конструкций
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -88,16 +88,17 @@
           <a href="#">
             <img
               class="rounded-t-lg max-h-[250px] w-[420px]"
-              src="https://static.glavsnab.net/media/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/2/5/2500207_12.jpg?kar=1&kf=1&kt=1&co=1&rgb%5B0%5D=255&rgb%5B1%5D=255&rgb%5B2%5D=255&ang=ang&qua=90"
+              src="https://rstart-shop.ru/wp-content/uploads/e/5/d/e5db42e920569ce9c64569175a8ffcbf.jpeg"
               alt=""
             />
           </a>
           <div class="p-5">
             <a href="#">
               <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Название новости
+                Экологически чистые изоляционные материалы: комфорт и
+                безопасность в каждом доме
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">

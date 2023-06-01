@@ -153,14 +153,14 @@
         </div>
       </div>
       <p class="font-bold text-[25px] m-[25px]">Похожие товары</p>
-      <div class="flex">
+      <div class="flex p-[15px]">
         <div v-for="(NewProduct, key) in fullItem" :key="key" class="mr-[15px]">
           <div
-            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="w-[220px] h-[400px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
-                class="rounded-t-lg w-[150px] m-[15px]"
+                class="rounded-t-lg w-[150px] h-[150px] m-[15px]"
                 :src="NewProduct.image"
                 alt=""
               />

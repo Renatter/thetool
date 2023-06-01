@@ -11,6 +11,8 @@ import Reg from "../components/reg.vue"
 import Login from "../components/Login.vue"
 import Bracket from '../view/Bracket.vue'
 import Like from "../view/Like.vue"
+import Discount from "../view/Discount.vue"
+import Hit from "../view/Hit.vue"
 const router = createRouter({
 
     history: createWebHistory(),
@@ -26,8 +28,8 @@ const router = createRouter({
             component: New,
         },
         {
-            path: '/Home',
-            name: 'Home',
+            path: '/',
+            name: '/',
             component: Home,
         },
         {
@@ -52,6 +54,11 @@ const router = createRouter({
             component: Login,
         },
         {
+            path: "/Hit",
+            name: 'Hit',
+            component: Hit,
+        },
+        {
             path: "/Bracket",
             name: 'Bracket',
             component: Bracket,
@@ -60,6 +67,11 @@ const router = createRouter({
             path: "/Like",
             name: 'Like',
             component: Like,
+        },
+        {
+            path: "/Discount",
+            name: 'Discount',
+            component: Discount,
         }
 
     ]

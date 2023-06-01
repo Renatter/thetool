@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-white">
+  <div class="h-full">
     <h1 class="text-[50px]">Избранные</h1>
 
     <div>
