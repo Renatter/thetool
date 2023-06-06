@@ -26,7 +26,7 @@ export default {
   },
 
   async created() {
-    const HomeGardenRef = doc(db, "paintProducts1", "HomeGarden");
+    const HomeGardenRef = doc(db, "paintProducts1", "Hit");
     const HomeGardenSnap = await getDoc(HomeGardenRef);
     if (HomeGardenSnap.exists()) {
       this.HomeGarden = HomeGardenSnap.data();

@@ -3,10 +3,10 @@
     <div class="pt-[25px]">
       <h1 class="text-[30px] font-bold mb-[24px]">Акция</h1>
 
-      <div class="flex flex-wrap gap-[50px]">
+      <div class="flex flex-wrap gap-[30px]">
         <div v-for="(NewProduct, key) in NewProducts" :key="key" class="">
           <div
-            class="w-[250px] h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="w-[250px] h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img
@@ -85,7 +85,7 @@ export default {
     },
   },
   async created() {
-    const docRef = doc(db, "paintProducts1", "NewProducts");
+    const docRef = doc(db, "paintProducts1", "Discount");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       this.NewProducts = docSnap.data();

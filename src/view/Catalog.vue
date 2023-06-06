@@ -1,6 +1,9 @@
 <template>
   <div class="h-[100vh]">
-    <div class="inline-flex rounded-md shadow-sm ml-[200px]" role="group">
+    <div
+      class="inline-flex rounded-md shadow-sm ml-[270px] pt-[35px]"
+      role="group"
+    >
       <button
         @click="itemsTab(1)"
         type="button"
@@ -79,7 +82,7 @@
         Электрооборудование
       </button>
     </div>
-    {{ productTab }}
+
     <div v-if="activeTab == 1">
       <Card :items="items" :prodcut="productTab" />
     </div>

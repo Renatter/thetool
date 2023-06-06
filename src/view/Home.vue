@@ -1,6 +1,5 @@
 <template>
-  <div class="mb-[50px]">
-    <div>home</div>
+  <div class="mb-[50px] pt-[15px]">
     <TopCard />
     <Slider />
     <Brends />

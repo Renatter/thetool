@@ -7,7 +7,7 @@
         <router-link to="/">
           <a class="flex items-center">
             <img
-              src="../assets/l.png"
+              src="../assets/logotip-1.png"
               class="h-[60px] mr-3"
               alt="Flowbite Logo"
             />

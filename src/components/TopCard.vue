@@ -1,16 +1,24 @@
 <template>
   <div class="container text-white text-[20px]">
     <div class="Dewait text-[40px]">
-      <h1 class="m-[30px]">DeWALT - Инструмент с настоящим характером</h1>
+      <router-link to="/Catalog">
+        <h1 class="m-[30px]">DeWALT - Инструмент с настоящим характером</h1>
+      </router-link>
     </div>
     <div class="stock">
-      <h1 class="m-[16px]">Акции</h1>
+      <router-link to="/Discount">
+        <h1 class="m-[16px]">Акции</h1>
+      </router-link>
     </div>
     <div class="New">
-      <h1 class="m-[16px]">Новое поступление</h1>
+      <router-link to="/New">
+        <h1 class="m-[16px]">Новое поступление</h1>
+      </router-link>
     </div>
     <div class="stock2">
-      <h1 class="m-[16px]">Акции на сверла</h1>
+      <router-link to="/Hit">
+        <h1 class="m-[16px]">Хиты сезона</h1>
+      </router-link>
     </div>
   </div>
 </template>

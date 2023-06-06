@@ -6,7 +6,7 @@
       <div class="flex flex-wrap gap-[50px]">
         <div v-for="(NewProduct, key) in NewProducts" :key="key" class="">
           <div
-            class="w-[250px] h-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            class="w-[250px] h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <a href="#">
               <img

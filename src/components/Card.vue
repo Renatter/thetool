@@ -1,25 +1,27 @@
 <template>
-  <div class="flex flex-wrap">
-    <div v-for="item in items" class="m-[50px] w-[300px]">
+  <div class="flex flex-wrap pt-[25px] justify-center">
+    <div v-for="item in items" class="m-[10px] w-[300px]">
       <div
-        class="max-w-sm h-[390px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        class="max-w-sm h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
         <a href="#">
           <img
-            class="rounded-t-lg w-[150px] h-[150px] m-[15px] object-scale-down"
+            class="rounded-t-lg w-[250px] h-[180px] m-[15px] object-scale-down"
             :src="item.image"
             alt=""
           />
         </a>
-        <div class="p-5">
+        <div class="p-5 mb-[25px]">
           <a href="#">
             <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="mb-2 text-[18px] font-bold tracking-tight text-gray-900 dark:text-white"
             >
               {{ item.name }}
             </h5>
           </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p
+            class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-[25px]"
+          >
             {{ item.price }} $
           </p>
           <router-link
