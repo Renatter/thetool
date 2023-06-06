@@ -1,10 +1,29 @@
 <template>
-  <div class="h-[100vh]">
-    <p>EMAIL</p>
-    <input v-model="email" type="text" />
-    <p>Pass</p>
-    <input v-model="pass" type="text" />
-    <button @click="register">Sign</button>
+  <div class="h-screen flex items-center justify-center">
+    <div class="">
+      <img src="../assets/logotip-1.png" class="ml-[120px]" alt="" />
+      <p class="text-xl font-bold mb-2">Электронная почта</p>
+      <input
+        v-model="email"
+        type="text"
+        class="border border-gray-300 rounded px-4 py-2 mb-2 w-[400px]"
+      />
+      <p class="text-xl font-bold mb-2">Пароль</p>
+      <input
+        v-model="pass"
+        type="text"
+        class="border border-gray-300 rounded px-4 py-2 mb-2 w-[400px]"
+      />
+
+      <div>
+        <button
+          @click="register"
+          class="bg-[#1D4ED8] hover:bg-[#1D4ED8] w-full text-white font-bold py-2 px-4 rounded"
+        >
+          Войти
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,4 +54,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.button {
+  background-color: #3490dc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>

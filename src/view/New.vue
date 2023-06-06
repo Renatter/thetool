@@ -3,7 +3,7 @@
     <div class="pt-[25px]">
       <h1 class="text-[30px] font-bold mb-[24px]">Новинки</h1>
 
-      <div class="flex flex-wrap gap-[50px]">
+      <div class="flex flex-wrap gap-[20px]">
         <div v-for="(NewProduct, key) in NewProducts" :key="key" class="">
           <div
             class="w-[250px] h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"

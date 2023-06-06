@@ -28,7 +28,7 @@
               </p>
               <router-link
                 :to="{
-                  path: '/InfoCard/' + NewProduct.name + '/' + 'NewProducts',
+                  path: '/InfoCard/' + NewProduct.name + '/' + 'Discount',
                 }"
               >
                 <a

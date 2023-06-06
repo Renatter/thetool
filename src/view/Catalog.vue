@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[100vh]">
+  <div class="h-full">
     <div
       class="inline-flex rounded-md shadow-sm ml-[270px] pt-[35px]"
       role="group"
