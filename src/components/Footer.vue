@@ -6,13 +6,9 @@
           <a href="#" class="flex items-center">
             <img
               src="../assets/logotip-1.png"
-              class="h-8 mr-3"
+              class="h-9 mr-5"
               alt="FlowBite Logo"
             />
-            <span
-              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-              >Flowbite</span
-            >
           </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -66,10 +62,7 @@
             </h2>
             <ul class="text-gray-600 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a href="#" class="hover:underline">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                <a href="#" class="hover:underline">О компании </a>
               </li>
             </ul>
           </div>
