@@ -41,8 +41,8 @@
                 </td>
               </router-link>
               <td class="px-6 py-4">Silver</td>
-              <td class="px-6 py-4">Laptop</td>
-              <td class="px-6 py-4">${{ item.price }}</td>
+              <td class="px-6 py-4">{{ item.category }}</td>
+              <td class="px-6 py-4">{{ item.price }} тг</td>
               <td class="px-6 py-4">
                 <input
                   type="number"
@@ -52,7 +52,7 @@
                   class="w-16 px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
               </td>
-              <td class="px-6 py-4">${{ item.totalPrice }}</td>
+              <td class="px-6 py-4">{{ item.totalPrice }} тг</td>
               <td class="px-6 py-4">
                 <button @click="deleteItem(item)" class="text-red-500">
                   Delete
@@ -317,7 +317,7 @@
         <div class="Price bg-[#212526] text-white h-[250px] w-[420px]">
           <div class="text-bold text-[30px] p-[25px]">
             Итого:
-            <span class="text-[#EAB308]">${{ totalSum }} </span>
+            <span class="text-[#EAB308]">{{ totalSum }} тг </span>
           </div>
           <div class="text-bold text-[30px] p-[25px]">
             Товаров:
@@ -342,30 +342,34 @@ import {
 export default {
   data() {
     return {
-      currentUser: null,
-      firstName: null,
-      lastName: null,
-      items: null,
-      id: null,
-      tab: 1,
-      deliver: 1,
-      pay: 1,
+      currentUser: null, // Текущий пользователь
+      firstName: null, // Имя пользователя
+      lastName: null, // Фамилия пользователя
+      items: null, // Элементы корзины
+      id: null, // Идентификатор пользователя
+      tab: 1, // Текущая вкладка
+      deliver: 1, // Опция доставки
+      pay: 1, // Опция оплаты
     };
   },
   methods: {
     calculateTotalQuantity() {
+      // Метод для вычисления общего количества товаров в корзине
       if (this.items) {
         return this.items.reduce((sum, item) => sum + item.quantity, 0);
       }
       return 0;
     },
     tabItem(index) {
+      // Метод для изменения текущей вкладки
       this.tab = index;
     },
     updateTotalPrice(item) {
+      // Метод для обновления общей стоимости товара
       item.totalPrice = item.price * item.quantity;
     },
     async deleteItem(item) {
+      // Асинхронный метод для удаления товара из корзины
       const docRef = doc(db, "users", this.id);
       await updateDoc(docRef, {
         cart: arrayRemove(item),
@@ -374,6 +378,7 @@ export default {
   },
   computed: {
     totalSum() {
+      // Вычисляемое свойство для получения общей суммы заказа
       if (this.items) {
         return this.items.reduce((sum, item) => sum + item.totalPrice, 0);
       }
@@ -381,10 +386,13 @@ export default {
     },
   },
   async created() {
+    // Хук created: выполняется при создании компонента
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         this.currentUser = user;
         this.id = user.uid;
+
+        // Получение профиля пользователя
         const userDocRef = doc(db, "userProfile", user.uid);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
@@ -394,6 +402,8 @@ export default {
         } else {
           console.log("No such document!");
         }
+
+        // Получение данных корзины пользователя
         const docRef = doc(db, "users", this.id);
         const unsubscribe = onSnapshot(docRef, (docSnap) => {
           if (docSnap.exists()) {
@@ -404,13 +414,14 @@ export default {
           }
         });
 
-        // Add unsubscribe function to component instance
+        // Добавление функции отписки от обновлений в экземпляр компонента
         this.unsubscribe = unsubscribe;
       }
     });
   },
   beforeUnmount() {
-    // Unsubscribe from the snapshot listener when component is unmounted
+    // Выполняется перед размонтированием компонента
+    // Отписываемся от прослушивания изменений в базе данных
     if (this.unsubscribe) {
       this.unsubscribe();
     }

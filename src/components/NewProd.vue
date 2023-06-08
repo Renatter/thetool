@@ -35,7 +35,7 @@
                 </h5>
               </a>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{ NewProduct.price }} $
+                {{ NewProduct.price }} тг
               </p>
               <router-link
                 :to="{
@@ -92,8 +92,8 @@ export default {
   },
   data() {
     return {
-      NewProducts: null,
-      swiperInitialized: false,
+      NewProducts: null, // Данные новых продуктов
+      swiperInitialized: false, // Флаг для инициализации Swiper
     };
   },
   mounted() {
@@ -109,6 +109,7 @@ export default {
     },
   },
   async created() {
+    // Получение данных новых продуктов
     const docRef = doc(db, "paintProducts1", "NewProducts");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {

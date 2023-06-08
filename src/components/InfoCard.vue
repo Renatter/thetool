@@ -174,7 +174,7 @@
                 </h5>
               </a>
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{ NewProduct.price }} $
+                {{ NewProduct.price }} тг
               </p>
               <a
                 href="#"
@@ -218,18 +218,19 @@ import {
 export default {
   data() {
     return {
-      item: null,
-      productInfo: null,
-      atcivTab: 1,
-      fullItem: null,
-      firstName: null,
-      currentUser: null,
-      cart: null,
-      likes: [],
+      item: null, // Данные продукта
+      productInfo: null, // Информация о продукте
+      activeTab: 1, // Текущая активная вкладка
+      fullItem: null, // Полные данные о продукте
+      firstName: null, // Имя пользователя
+      currentUser: null, // Текущий пользователь
+      cart: null, // Корзина пользователя
+      likes: [], // Массив "Нравится" пользователя
     };
   },
   methods: {
     async addLike() {
+      // Метод для добавления отметки "Нравится"
       const docRef = doc(db, "likes", `${this.currentUser.uid}`);
       const newLike = {
         category: this.$route.params.id2,
@@ -257,6 +258,7 @@ export default {
       console.log("Item added to likes:", newLike);
     },
     async addToCart() {
+      // Метод для добавления товара в корзину
       const docRef = doc(db, "users", `${this.currentUser.uid}`);
       const newItem = {
         category: this.$route.params.id2,
@@ -274,13 +276,13 @@ export default {
 
       if (itemExists) {
         alert("уже есть этот товар");
-        // Display a message to the user indicating that the item is already in the cart
+        // Отобразите пользователю сообщение, указывающее, что товар уже присутствует в корзине
         return;
       }
-      // Add the new item to the existing cart array
+      // Добавьте новый товар в существующий массив корзины
       const updatedCart = [...(this.cart || []), newItem];
 
-      // Update the user's cart with the updated cart array
+      // Обновите корзину пользователя с обновленным массивом корзины
       await setDoc(docRef, { cart: updatedCart }, { merge: true });
 
       console.log("Item added to cart:", newItem);
@@ -288,6 +290,7 @@ export default {
   },
 
   async created() {
+    // Получите данные продукта по его идентификатору
     const docRef = doc(db, "paintProducts1", `${this.$route.params.id2}`);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -297,12 +300,15 @@ export default {
     } else {
       console.log("No such document!");
     }
+
+    // Фильтрация данных для получения информации о конкретном продукте
     const filteredData = Object.values(this.item).filter(
       (x) => x.name === `${this.$route.params.id}`
     );
     this.productInfo = filteredData[0];
     console.log("Filtered data:", this.productInfo);
 
+    // Получите полные данные о продукте
     const fullRef = doc(db, "paintProducts1", `${this.$route.params.id2}`);
     const fullSnap = await getDoc(fullRef);
     if (docSnap.exists()) {
@@ -313,6 +319,7 @@ export default {
       console.log("No such document!");
     }
 
+    // Отслеживание состояния аутентификации пользователя
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         this.currentUser = user;

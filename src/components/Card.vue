@@ -22,7 +22,7 @@
           <p
             class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-[25px]"
           >
-            {{ item.price }} $
+            {{ item.price }} тг
           </p>
           <router-link
             :to="{ path: '/InfoCard/' + item.name + '/' + prodcut }"

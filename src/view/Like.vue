@@ -69,18 +69,20 @@ import {
 export default {
   data() {
     return {
-      currentUser: null,
-      firstName: null,
-      lastName: null,
-      items: null,
-      id: null,
+      currentUser: null, // Текущий пользователь
+      firstName: null, // Имя пользователя
+      lastName: null, // Фамилия пользователя
+      items: null, // Избранные элементы
+      id: null, // ID пользователя
     };
   },
   methods: {
     updateTotalPrice(item) {
+      // Обновление общей стоимости товара
       item.totalPrice = item.price * item.quantity;
     },
     async deleteItem(item) {
+      // Удаление элемента из избранного
       const docRef = doc(db, "likes", this.id);
       await updateDoc(docRef, {
         likes: arrayRemove(item),
@@ -89,6 +91,7 @@ export default {
   },
   computed: {
     totalSum() {
+      // Вычисление общей суммы стоимости всех избранных элементов
       if (this.items) {
         return this.items.reduce((sum, item) => sum + item.totalPrice, 0);
       }
@@ -96,6 +99,7 @@ export default {
     },
   },
   async created() {
+    // Обработчик события создания компонента
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         this.currentUser = user;
@@ -120,13 +124,13 @@ export default {
           }
         });
 
-        // Add unsubscribe function to component instance
+        // Добавление функции отписки от обновлений к экземпляру компонента
         this.unsubscribe = unsubscribe;
       }
     });
   },
   beforeUnmount() {
-    // Unsubscribe from the snapshot listener when component is unmounted
+    // Отписка от обновлений при размонтировании компонента
     if (this.unsubscribe) {
       this.unsubscribe();
     }

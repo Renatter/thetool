@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      productTab: "HomeGarden",
+      productTab: "Hit",
 
       HomeGarden: null,
     };

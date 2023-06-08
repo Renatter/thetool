@@ -38,12 +38,13 @@ import { auth, db } from "../firebase/index";
 export default {
   data() {
     return {
-      email: "",
-      pass: "",
+      email: "", // Поле для ввода адреса электронной почты
+      pass: "", // Поле для ввода пароля
     };
   },
   methods: {
     async register() {
+      // Метод для регистрации пользователя
       try {
         await signInWithEmailAndPassword(auth, this.email, this.pass);
       } catch (error) {

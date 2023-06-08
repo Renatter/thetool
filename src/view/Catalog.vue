@@ -102,39 +102,45 @@
 import { db } from "../firebase/index";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 import Card from "../components/Card.vue";
+
 export default {
   components: {
     Card,
   },
   data() {
     return {
-      productTab: "product1",
-      activeTab: 1,
-      items: null,
-      Workwears: null,
-      ElecEquim: null,
-      HomeGarden: null,
+      productTab: "product1", // Выбранный продукт
+      activeTab: 1, // Активная вкладка
+      items: null, // Данные для вкладки "Малярные"
+      Workwears: null, // Данные для вкладки "Спецодежда"
+      ElecEquim: null, // Данные для вкладки "Электрооборудование"
+      HomeGarden: null, // Данные для вкладки "Для дома и дачи"
     };
   },
   methods: {
     itemsTab(id) {
+      // Метод для переключения на вкладку "Малярные"
       this.activeTab = id;
       this.productTab = "product1";
     },
     WorkwearsTab(id) {
+      // Метод для переключения на вкладку "Спецодежда"
       this.activeTab = id;
       this.productTab = "Workwear";
     },
     ElecEquimTab(id) {
+      // Метод для переключения на вкладку "Электрооборудование"
       this.activeTab = id;
       this.productTab = "ElecEquim";
     },
     HomeGardenTab(id) {
+      // Метод для переключения на вкладку "Для дома и дачи"
       this.activeTab = id;
       this.productTab = "HomeGarden";
     },
   },
   async created() {
+    // Загрузка данных для каждой вкладки при создании компонента
     const docRef = doc(db, "paintProducts1", "product1");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {

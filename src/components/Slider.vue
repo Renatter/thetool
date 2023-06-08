@@ -268,7 +268,6 @@
   margin-left: 0;
 }
 </style>
-
 <script>
 import { db } from "../firebase/index";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
@@ -282,11 +281,11 @@ export default {
   },
   data() {
     return {
-      items: null,
-      Workwears: null,
-      ElecEquim: null,
-      HomeGarden: null,
-      swiperInitialized: false,
+      items: null, // Данные продуктов paintProducts1
+      Workwears: null, // Данные продуктов Workwear
+      ElecEquim: null, // Данные продуктов ElecEquim
+      HomeGarden: null, // Данные продуктов HomeGarden
+      swiperInitialized: false, // Флаг для инициализации Swiper
     };
   },
   mounted() {
@@ -302,6 +301,7 @@ export default {
     },
   },
   async created() {
+    // Получение данных продуктов paintProducts1
     const docRef = doc(db, "paintProducts1", "product1");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -312,6 +312,7 @@ export default {
       console.log("No such document!");
     }
 
+    // Получение данных продуктов Workwear
     const WorkwearRef = doc(db, "paintProducts1", "Workwear");
     const WorkwearSnap = await getDoc(WorkwearRef);
     if (WorkwearSnap.exists()) {
@@ -322,6 +323,7 @@ export default {
       console.log("No such document!");
     }
 
+    // Получение данных продуктов ElecEquim
     const ElecEquimRef = doc(db, "paintProducts1", "ElecEquim");
     const ElecEquimSnap = await getDoc(ElecEquimRef);
     if (ElecEquimSnap.exists()) {
@@ -332,6 +334,7 @@ export default {
       console.log("No such document!");
     }
 
+    // Получение данных продуктов HomeGarden
     const HomeGardenRef = doc(db, "paintProducts1", "HomeGarden");
     const HomeGardenSnap = await getDoc(HomeGardenRef);
     if (HomeGardenSnap.exists()) {
