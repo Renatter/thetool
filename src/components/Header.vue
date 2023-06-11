@@ -35,7 +35,7 @@
                   ></path>
                 </svg>
                 <span class="sr-only">Notifications</span>
-                Корзина
+                {{ $t("header.basket") }}
                 <div
                   class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
                 >
@@ -60,7 +60,7 @@
                   ></path>
                 </svg>
                 <span class="sr-only">Notifications</span>
-                Избранные
+                {{ $t("header.Favoirt") }}
                 <div
                   class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900"
                 >
@@ -74,7 +74,7 @@
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Выйти
+              {{ $t("header.leave") }}
             </button>
           </div>
           <div v-else>
@@ -83,15 +83,31 @@
               type="button"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Регистрация
+              {{ $t("header.reg") }}
             </router-link>
             <router-link
               to="/Login"
               type="button"
               class="ml-[15px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Войти
+              {{ $t("header.login") }}
             </router-link>
+          </div>
+          <div class="">
+            <button @click="setLocale('kz')" class="ml-[15px]">
+              <img
+                src="https://avatars.mds.yandex.net/i?id=21595e288846b0b961d3c27bea79fcf3-3871383-images-thumbs&n=13"
+                alt=""
+                class="h-[35px] w-[35px] rounded-[5000px]"
+              />
+            </button>
+            <button @click="setLocale('ru')">
+              <img
+                src="https://cdn1.ozone.ru/s3/multimedia-e/6337266878.jpg"
+                alt=""
+                class="h-[30px] w-[30px] rounded-[5000px] ml-[10px]"
+              />
+            </button>
           </div>
           <button
             data-collapse-toggle="navbar-cta"
@@ -133,7 +149,7 @@
                   }"
                   @click="changeTab('about')"
                 >
-                  О компании
+                  {{ $t("header.about") }}
                 </a>
               </router-link>
             </li>
@@ -147,7 +163,7 @@
                   }"
                   @click="changeTab('about')"
                 >
-                  Каталог
+                  {{ $t("header.catalog") }}
                 </a>
               </router-link>
             </li>
@@ -161,7 +177,7 @@
                   }"
                   @click="changeTab('stocks')"
                 >
-                  Акции
+                  {{ $t("header.discount") }}
                 </a>
               </router-link>
             </li>
@@ -175,7 +191,7 @@
                   }"
                   @click="changeTab('heat')"
                 >
-                  Хиты сезона
+                  {{ $t("header.hit") }}
                 </a>
               </router-link>
             </li>
@@ -189,7 +205,7 @@
                   }"
                   @click="changeTab('new')"
                 >
-                  Новинки
+                  {{ $t("header.New") }}
                 </a>
               </router-link>
             </li>
@@ -212,7 +228,11 @@ export default {
     };
   },
   methods: {
+    setLocale(locale) {
+      this.$i18n.locale = locale;
+    },
     logout() {
+      this.isAuthenticated = false;
       auth.signOut();
       this.$router.push("/");
     },

@@ -1,7 +1,7 @@
 <template>
   <div class="my-[25px]">
     <h1 class="text-[30px] font-bold">
-      Отличные предложения: хиты сезона в магазине строительных материалов!
+      {{ $t("header.hitText") }}
     </h1>
     <div class="pt-[15px]">
       <Card :items="HomeGarden" :prodcut="productTab" />

@@ -16,20 +16,24 @@
             <h2
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >
-              Инструменты
+              {{ $t("fotter.tool") }}
             </h2>
             <ul class="text-gray-600 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a href="" class="hover:underline">Малярные товары</a>
+                <a href="" class="hover:underline">{{
+                  $t("slider.Painting")
+                }}</a>
               </li>
               <li class="mb-4">
-                <a href="" class="hover:underline">Электрооборудование</a>
+                <a href="" class="hover:underline">{{
+                  $t("slider.Workwear")
+                }}</a>
               </li>
               <li class="mb-4">
-                <a href="" class="hover:underline">Спецодежда</a>
+                <a href="" class="hover:underline">{{ $t("slider.hag") }}</a>
               </li>
               <li>
-                <a href="" class="hover:underline">Для дома и дачи</a>
+                <a href="" class="hover:underline">{{ $t("slider.elec") }}</a>
               </li>
             </ul>
           </div>
@@ -37,32 +41,19 @@
             <h2
               class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
             >
-              О компании
+              {{ $t("fotter.about") }}
             </h2>
             <ul class="text-gray-600 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a
-                  href="https://github.com/themesberg/flowbite"
-                  class="hover:underline"
-                  >Контакты</a
-                >
+                <a class="hover:underline"> {{ $t("fotter.contact") }}</a>
               </li>
               <li>
-                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline"
-                  >Новинки</a
-                >
+                <a class="hover:underline">
+                  {{ $t("fotter.new") }}
+                </a>
               </li>
-            </ul>
-          </div>
-          <div>
-            <h2
-              class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
-            >
-              Legal
-            </h2>
-            <ul class="text-gray-600 dark:text-gray-400 font-medium">
-              <li class="mb-4">
-                <a href="#" class="hover:underline">О компании </a>
+              <li>
+                <a class="hover:underline">{{ $t("fotter.aboutCom") }}</a>
               </li>
             </ul>
           </div>
@@ -73,9 +64,7 @@
       />
       <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-          >© 2023
-          <a href="https://flowbite.com/" class="hover:underline">Атабек™</a>.
-          Строй Март.
+          >© 2023 <a class="hover:underline">Атабек™</a>. Строй Март.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a

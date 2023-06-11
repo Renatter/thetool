@@ -1,7 +1,9 @@
 <template>
   <div class="flex justify-between">
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Акция</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">
+        {{ $t("header.discount") }}
+      </h1>
       <div class="flex flex-wrap gap-[30px]">
         <Card :items="HomeGarden" :prodcut="productTab" />
       </div>

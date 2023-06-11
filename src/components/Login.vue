@@ -2,13 +2,13 @@
   <div class="h-screen flex items-center justify-center">
     <div class="">
       <img src="../assets/logotip-1.png" class="ml-[120px]" alt="" />
-      <p class="text-xl font-bold mb-2">Электронная почта</p>
+      <p class="text-xl font-bold mb-2">{{ $t("reg.email") }}</p>
       <input
         v-model="email"
         type="text"
         class="border border-gray-300 rounded px-4 py-2 mb-2 w-[400px]"
       />
-      <p class="text-xl font-bold mb-2">Пароль</p>
+      <p class="text-xl font-bold mb-2">{{ $t("reg.pas") }}</p>
       <input
         v-model="pass"
         type="text"
@@ -20,7 +20,7 @@
           @click="register"
           class="bg-[#1D4ED8] hover:bg-[#1D4ED8] w-full text-white font-bold py-2 px-4 rounded"
         >
-          Войти
+          {{ $t("reg.join") }}
         </button>
       </div>
     </div>

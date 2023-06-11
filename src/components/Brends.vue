@@ -2,7 +2,7 @@
   <div
     class="bg-[#212526] w-full h-[246px] text-white mt-[80px] rounded-[25px] mb-[80px]"
   >
-    <h1 class="text-[32px] pt-[30px] ml-[15px]">Наши бренды</h1>
+    <h1 class="text-[32px] pt-[30px] ml-[15px]">{{ $t("slider.brend") }}</h1>
     <swiper
       :pagination="{
         type: 'progressbar',

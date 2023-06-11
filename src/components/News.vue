@@ -1,12 +1,9 @@
 <template>
   <div class="pt-[50px] flex justify-between">
     <div class="text w-[380px] mb-[52px]">
-      <h1 class="text-[32px] font-bold mb-[24px]">Новости</h1>
+      <h1 class="text-[32px] font-bold mb-[24px]">{{ $t("news.title") }}</h1>
       <p>
-        Торговое или промышленное предприятие, торгово-промышленное объединение
-        предпринимателей, форма организации предприятия, при которой
-        его правосубъектность отличается от правосубъектности лиц,
-        в нем участвующих. Компании имеют статус юридического лица.
+        {{ $t("news.titleText") }}
       </p>
     </div>
     <div class="flex">
@@ -26,8 +23,7 @@
               <h5
                 class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Новая технология революционирует строительную индустрию:
-                инновационные материалы будущего
+                {{ $t("news.text1") }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -49,7 +45,7 @@
               <h5
                 class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Графен в строительстве: будущее здесь
+                {{ $t("news.text2") }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -74,7 +70,7 @@
               <h5
                 class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Умный бетон: революционная технология для надежных конструкций
+                {{ $t("news.text3") }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -97,8 +93,7 @@
               <h5
                 class="mb-2 text-[15px] font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Экологически чистые изоляционные материалы: комфорт и
-                безопасность в каждом доме
+                {{ $t("news.text4") }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">

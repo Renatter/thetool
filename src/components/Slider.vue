@@ -1,7 +1,9 @@
 <template>
   <div class="flex justify-between">
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Малярные товары</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">
+        {{ $t("slider.Painting") }}
+      </h1>
       <swiper
         class="w-[500px] slider-container"
         v-if="swiperInitialized"
@@ -62,7 +64,9 @@
     </div>
 
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Спецодежда</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">
+        {{ $t("slider.Workwear") }}
+      </h1>
       <swiper
         class="w-[500px] slider-container"
         v-if="swiperInitialized"
@@ -129,7 +133,7 @@
 
   <div class="flex justify-between">
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Для дома и дачи</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">{{ $t("slider.hag") }}</h1>
       <swiper
         class="w-[500px] slider-container"
         v-if="swiperInitialized"
@@ -194,7 +198,7 @@
     </div>
 
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Электрооборудование</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">{{ $t("slider.elec") }}</h1>
       <swiper
         class="w-[500px] slider-container"
         v-if="swiperInitialized"

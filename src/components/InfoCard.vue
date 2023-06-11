@@ -73,27 +73,39 @@
         <div class="ml-[50px]">
           <h1 class="text-[30px]">{{ productInfo.name }}</h1>
           <p class="text-[#22c55e] my-[20px]" v-if="productInfo.availability">
-            В наличии
+            {{ $t("infoCard.quant") }}
           </p>
           <p class="w-[380px]">{{ productInfo.minInfo }}</p>
           <p class="my-[50px] font-bold text-[30px]">
             {{ productInfo.price }} тг
           </p>
           <div>
-            <button
-              @click="addToCart"
-              type="button"
-              class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
-            >
-              Купить
-            </button>
-            <button
-              @click="addLike"
-              type="button"
-              class="focus:outline-none text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-800"
-            >
-              Нравится
-            </button>
+            <div>
+              <button
+                v-if="currentUser"
+                @click="addToCart"
+                type="button"
+                class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+              >
+                {{ $t("infoCard.pay") }}
+              </button>
+              <router-link v-else to="/Reg">
+                <button
+                  type="button"
+                  class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+                >
+                  {{ $t("infoCard.join") }}
+                </button>
+              </router-link>
+
+              <button
+                @click="addLike"
+                type="button"
+                class="focus:outline-none text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-red-800"
+              >
+                {{ $t("infoCard.like") }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -106,21 +118,21 @@
               <a
                 @click="atcivTab = 1"
                 class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                >Описание</a
+                >{{ $t("infoCard.text") }}</a
               >
             </li>
             <li class="mr-2">
               <a
                 @click="atcivTab = 2"
                 class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                >Доставка</a
+                >{{ $t("infoCard.del") }}</a
               >
             </li>
             <li class="mr-2">
               <a
                 @click="atcivTab = 3"
                 class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                >Отзывы</a
+                >{{ $t("infoCard.otzvL") }}</a
               >
             </li>
           </ul>
@@ -135,15 +147,15 @@
             {{ productInfo.Delivery }}
           </p>
         </div>
-        <div v-if="atcivTab == 3" class="flex">
-          <div class="border h-[160px] w-[580px] m-[15px]">
+        <div v-if="atcivTab == 3" class="flex flex-wrap">
+          <div class="border h-[160px] w-[540px] m-[15px]">
             <div class="m-[15px]">
               <p class="text-[#E3A008]">{{ productInfo.otzv1[0] }}</p>
               <p>{{ productInfo.otzv1[1] }}</p>
               <p>{{ productInfo.otzv1[2] }}</p>
             </div>
           </div>
-          <div class="border h-[160px] w-[580px] m-[15px]">
+          <div class="border h-[160px] w-[540px] m-[15px]">
             <div class="m-[15px]">
               <p class="text-[#E3A008]">{{ productInfo.otzv2[0] }}</p>
               <p>{{ productInfo.otzv2[1] }}</p>
@@ -152,7 +164,7 @@
           </div>
         </div>
       </div>
-      <p class="font-bold text-[25px] m-[25px]">Похожие товары</p>
+      <p class="font-bold text-[25px] m-[25px]">{{ $t("infoCard.pohozh") }}</p>
       <div class="flex p-[15px]">
         <div v-for="(NewProduct, key) in fullItem" :key="key" class="mr-[15px]">
           <div
@@ -220,12 +232,17 @@ export default {
     return {
       item: null, // Данные продукта
       productInfo: null, // Информация о продукте
-      activeTab: 1, // Текущая активная вкладка
+      atcivTab: 1, // Текущая активная вкладка
       fullItem: null, // Полные данные о продукте
       firstName: null, // Имя пользователя
       currentUser: null, // Текущий пользователь
       cart: null, // Корзина пользователя
       likes: [], // Массив "Нравится" пользователя
+      newComment: {
+        name: "",
+        date: "",
+        comment: "",
+      },
     };
   },
   methods: {
@@ -311,9 +328,17 @@ export default {
     // Получите полные данные о продукте
     const fullRef = doc(db, "paintProducts1", `${this.$route.params.id2}`);
     const fullSnap = await getDoc(fullRef);
-    if (docSnap.exists()) {
-      this.fullItem = docSnap.data();
+    if (fullSnap.exists()) {
+      this.fullItem = fullSnap.data();
       console.log("Document data:", this.fullItem);
+
+      // Выбираем только пять продуктов
+      const fiveProducts = Object.keys(this.fullItem)
+        .slice(0, 5)
+        .map((key) => this.fullItem[key]);
+
+      console.log("Five products:", fiveProducts);
+
       this.swiperInitialized = true;
     } else {
       console.log("No such document!");

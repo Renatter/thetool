@@ -12,7 +12,7 @@
           >
             <tr>
               <th scope="col" class="px-6 py-3">Product</th>
-              <th scope="col" class="px-6 py-3">Color</th>
+
               <th scope="col" class="px-6 py-3">Category</th>
               <th scope="col" class="px-6 py-3">Price</th>
               <th scope="col" class="px-6 py-3">Quantity</th>
@@ -40,7 +40,7 @@
                   }}</span>
                 </td>
               </router-link>
-              <td class="px-6 py-4">Silver</td>
+
               <td class="px-6 py-4">{{ item.category }}</td>
               <td class="px-6 py-4">{{ item.price }} тг</td>
               <td class="px-6 py-4">

@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between">
     <div class="pt-[25px]">
-      <h1 class="text-[30px] font-bold mb-[24px]">Новинки</h1>
+      <h1 class="text-[30px] font-bold mb-[24px]">{{ $t("header.New") }}</h1>
 
       <div class="flex flex-wrap gap-[20px]">
         <Card :items="HomeGarden" :prodcut="productTab" />
