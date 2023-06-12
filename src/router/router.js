@@ -13,6 +13,7 @@ import Bracket from '../view/Bracket.vue'
 import Like from "../view/Like.vue"
 import Discount from "../view/Discount.vue"
 import Hit from "../view/Hit.vue"
+import Contact from "../view/Contact.vue"
 const router = createRouter({
 
     history: createWebHistory(),
@@ -20,6 +21,12 @@ const router = createRouter({
             path: '/About',
             name: 'About',
             component: About,
+
+        },
+        {
+            path: '/Contact',
+            name: 'Contact',
+            component: Contact,
 
         },
         {

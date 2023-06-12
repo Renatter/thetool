@@ -20,20 +20,28 @@
             </h2>
             <ul class="text-gray-600 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a href="" class="hover:underline">{{
-                  $t("slider.Painting")
-                }}</a>
+                <router-link to="/Catalog">
+                  <a href="" class="hover:underline">{{
+                    $t("slider.Painting")
+                  }}</a>
+                </router-link>
               </li>
               <li class="mb-4">
-                <a href="" class="hover:underline">{{
-                  $t("slider.Workwear")
-                }}</a>
+                <router-link to="/Catalog">
+                  <a href="" class="hover:underline">{{
+                    $t("slider.Workwear")
+                  }}</a>
+                </router-link>
               </li>
               <li class="mb-4">
-                <a href="" class="hover:underline">{{ $t("slider.hag") }}</a>
+                <router-link to="/Catalog">
+                  <a href="" class="hover:underline">{{ $t("slider.hag") }}</a>
+                </router-link>
               </li>
               <li>
-                <a href="" class="hover:underline">{{ $t("slider.elec") }}</a>
+                <router-link to="/Catalog">
+                  <a href="" class="hover:underline">{{ $t("slider.elec") }}</a>
+                </router-link>
               </li>
             </ul>
           </div>
@@ -45,15 +53,21 @@
             </h2>
             <ul class="text-gray-600 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <a class="hover:underline"> {{ $t("fotter.contact") }}</a>
+                <router-link to="/Contact">
+                  <a class="hover:underline"> {{ $t("fotter.contact") }}</a>
+                </router-link>
               </li>
               <li>
-                <a class="hover:underline">
-                  {{ $t("fotter.new") }}
-                </a>
+                <router-link to="/New"
+                  ><a class="hover:underline">
+                    {{ $t("fotter.new") }}
+                  </a></router-link
+                >
               </li>
               <li>
-                <a class="hover:underline">{{ $t("fotter.aboutCom") }}</a>
+                <router-link to="/About">
+                  <a class="hover:underline">{{ $t("fotter.aboutCom") }}</a>
+                </router-link>
               </li>
             </ul>
           </div>

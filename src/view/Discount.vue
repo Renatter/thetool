@@ -5,7 +5,12 @@
         {{ $t("header.discount") }}
       </h1>
       <div class="flex flex-wrap gap-[30px]">
-        <Card :items="HomeGarden" :prodcut="productTab" />
+        <Card
+          discount="true"
+          img="https://cdn-icons-png.flaticon.com/128/10963/10963017.png"
+          :items="HomeGarden"
+          :prodcut="productTab"
+        />
       </div>
     </div>
   </div>

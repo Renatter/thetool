@@ -71,7 +71,27 @@
       <div class="flex">
         <img :src="productInfo.image" class="w-[400px]" alt="" />
         <div class="ml-[50px]">
-          <h1 class="text-[30px]">{{ productInfo.name }}</h1>
+          <div class="flex justify-between">
+            <h1 class="text-[30px]">{{ productInfo.name }}</h1>
+            <img
+              v-if="this.$route.params.id2 === 'Hit'"
+              class="w-[35px] h-[35px]"
+              src="https://cdn-icons-png.flaticon.com/128/8187/8187788.png"
+              alt=""
+            />
+            <img
+              v-if="this.$route.params.id2 === 'NewProducts'"
+              class="w-[35px] h-[35px]"
+              src="https://cdn-icons-png.flaticon.com/128/478/478039.png"
+              alt=""
+            />
+            <img
+              v-if="this.$route.params.id2 === 'Discount'"
+              class="w-[35px] h-[35px]"
+              src="https://cdn-icons-png.flaticon.com/128/10963/10963017.png"
+              alt=""
+            />
+          </div>
           <p class="text-[#22c55e] my-[20px]" v-if="productInfo.availability">
             {{ $t("infoCard.quant") }}
           </p>
@@ -128,13 +148,6 @@
                 >{{ $t("infoCard.del") }}</a
               >
             </li>
-            <li class="mr-2">
-              <a
-                @click="atcivTab = 3"
-                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                >{{ $t("infoCard.otzvL") }}</a
-              >
-            </li>
           </ul>
         </div>
         <div v-if="atcivTab == 1">
@@ -146,22 +159,6 @@
           <p class="m-[25px]">
             {{ productInfo.Delivery }}
           </p>
-        </div>
-        <div v-if="atcivTab == 3" class="flex flex-wrap">
-          <div class="border h-[160px] w-[540px] m-[15px]">
-            <div class="m-[15px]">
-              <p class="text-[#E3A008]">{{ productInfo.otzv1[0] }}</p>
-              <p>{{ productInfo.otzv1[1] }}</p>
-              <p>{{ productInfo.otzv1[2] }}</p>
-            </div>
-          </div>
-          <div class="border h-[160px] w-[540px] m-[15px]">
-            <div class="m-[15px]">
-              <p class="text-[#E3A008]">{{ productInfo.otzv2[0] }}</p>
-              <p>{{ productInfo.otzv2[1] }}</p>
-              <p>{{ productInfo.otzv2[2] }}</p>
-            </div>
-          </div>
         </div>
       </div>
       <p class="font-bold text-[25px] m-[25px]">{{ $t("infoCard.pohozh") }}</p>
@@ -189,7 +186,6 @@
                 {{ NewProduct.price }} тг
               </p>
               <a
-                href="#"
                 class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Купить

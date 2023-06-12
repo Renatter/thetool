@@ -4,7 +4,11 @@
       {{ $t("header.hitText") }}
     </h1>
     <div class="pt-[15px]">
-      <Card :items="HomeGarden" :prodcut="productTab" />
+      <Card
+        img="https://cdn-icons-png.flaticon.com/128/8187/8187788.png"
+        :items="HomeGarden"
+        :prodcut="productTab"
+      />
     </div>
   </div>
 </template>

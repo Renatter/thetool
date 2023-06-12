@@ -4,7 +4,11 @@
       <h1 class="text-[30px] font-bold mb-[24px]">{{ $t("header.New") }}</h1>
 
       <div class="flex flex-wrap gap-[20px]">
-        <Card :items="HomeGarden" :prodcut="productTab" />
+        <Card
+          img="https://cdn-icons-png.flaticon.com/128/478/478039.png"
+          :items="HomeGarden"
+          :prodcut="productTab"
+        />
       </div>
     </div>
   </div>

@@ -2,8 +2,11 @@
   <div class="flex flex-wrap pt-[25px] justify-center">
     <div v-for="item in items" class="m-[10px] w-[300px]">
       <div
-        class="max-w-sm h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        class="max-w-sm relative h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
       >
+        <div class="absolute right-[15px]">
+          <img class="w-[45px]" :src="img" alt="" />
+        </div>
         <a href="#">
           <img
             class="rounded-t-lg w-[250px] h-[180px] m-[15px] object-scale-down"
@@ -20,7 +23,14 @@
             </h5>
           </a>
           <p
-            class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-[25px]"
+            v-if="discount === 'true'"
+            class="mb-3 font-normal text-red-500 dark:text-gray-400 text-[25px]"
+          >
+            {{ item.price }} тг
+          </p>
+          <p
+            v-else
+            class="mb-3 font-normal text-gray-600 dark:text-gray-400 text-[25px]"
           >
             {{ item.price }} тг
           </p>
@@ -52,7 +62,7 @@
 
 <script>
 export default {
-  props: ["items", "prodcut"],
+  props: ["items", "prodcut", "img", "discount"],
 };
 </script>
 
